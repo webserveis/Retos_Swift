@@ -33,6 +33,7 @@ let dateTwo = dateFormatter.date(from: dateStr2)
 
  // get the current date and time
 //let currentDateTime = Date()
+
 // initialize the date formatter and set the style
 let formatter = DateFormatter()
 formatter.timeStyle = .none
@@ -42,8 +43,18 @@ formatter.dateStyle = .long
 print(formatter.string(from: dateOne!)) 
 print(formatter.string(from: dateTwo!)) 
 
-let days = Calendar(identifier: .gregorian).numberOfDaysBetween(from: dateOne!, to: dateTwo!)
-print("days beetween dates: \(days) days")
+if (dateOne != nil) && (dateTwo != nil) {
+    let days = Calendar(identifier: .gregorian).numberOfDaysBetween(from: dateOne!, to: dateTwo!)
+    //print("days beetween dates: \(days) days")
+
+    let years = days / 365
+    let restOfDays = days - (years * 365)
+
+    print("\(years) years and \(restOfDays) days")
+
+}
+
+
 
 
 extension Calendar {
@@ -56,4 +67,5 @@ extension Calendar {
     }
 }
 
-//https://swiftfiddle.com/g2vmdqsopjhaddnsyjvgbxkuwu
+
+//https://swiftfiddle.com/przdwudgmngrjpcgpmcnr7gmue
